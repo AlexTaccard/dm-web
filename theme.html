@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <title>Thème</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+
+<body>
+  <header>
+  <h1 id="title">La construction des gammes musicales</h1>
+  <h1 id="subtitle">De l'accord pythagoricien au tempérament égal : l'art de faire entendre les nombres</h1>
+  <nav>
+      <a href="index.html">Accueil</a>
+      <a href="avis.html">Avis personnel</a>
+      <a href="references.html">Références</a>
+      <a href="annexe.html">Annexe</a>
+    </nav>
+  </header>
+  <h1 id="page-title">Thème</h1>
+  <hr>
+  <h2>Introduction et problématique</h2>
+  <p>Aujourd'hui, lorsque nous écoutons une musique, il nous semble que chaque note « sonne bien » et que l'ensemble des 12 notes distinctes qui composent ce que nous appelons <span class="it">gamme</span> ne présente aucun défaut.</p>
+  <p>Cela est bien sûr inexact, d'autant plus que le <span class="it">tempérament</span> actuel, c'est-à-dire la manière dont l'on équilibre les notes entre elles en attribuant à chacune une fréquence déterminée, est en réalité très récent et a fait l'objet de nombreux débats. L'accordage des instruments peut s'avérer très différent selon l'époque.</p>
+  <p>Si le système moderne n'a été adopté qu'à partir du XIX<sup>e</sup> siècle, la problématique de l'« équilibrage » des notes de musique émerge dès l'Antiquité.</p>
+  <h3>Au commencement était le monocorde</h3>
+  <p>Le <span class="it">monocorde</span>, traditionnellement attribué à <span class="sc">Pythagore</span> mais probablement inventé en Égypte, est un instrument expérimental qui permet de rendre compte de la notion d'<span class="it">intervalle</span> (en harmonie, résultat de la superposition de deux sons). L'objet est constitué d'une corde (d'où son nom) que l'on peut séparer par un cheval mobile (voir <span class="it">fig. 1</span> & <span class="it">2</span>).</p>
+  <figure class="image-figure">
+    <img class="center-image "src="images/monocorde1.jpg">
+    <figcaption>Fig. 1 : Dessin d'un monocorde.</figcaption>
+  </figure>
+  <figure class="image-figure">
+    <img class="center-image" src="images/monocorde2.jpg">
+    <figcaption>Fig. 2 : Monocorde. Remarquez le chevalet mobile placé au-dessus d'une règle graduée.</figcaption>
+  </figure>
+  <p>Lorsque l'on pince la corde, elle produit un son, que nous appelerons <span class="it">son zéro</span>.</p>
+    <p>Lorsque la corde est séparée en deux parties égales et que l'on pince l'une d'entre elles, nous obtenons un son presque identique au son zéro, mais qui s'en distingue par sa hauteur. Le rapport de la corde entière à sa subdivision est de \(2\) pour \(1\), et on dit alors que les deux sons sont à l'<span class="it">octave</span>.</p>
+  <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/octave.wav" type="audio/wav">
+  </audio>
+  <figcaption>Fig. 3 : Deux sons formant un intervalle d'octave</figcaption>
+  </figure>
+  <p>L'octave est l'intervalle le plus consonnant après l'unisson, puisque les deux sons produits sont très similaires. Le deuxième intervalle le plus consonnant est la <span class="it">quinte</span>. Si la corde est séparée en deux parties dont l'une est deux fois plus longue que l'autre, alors cette même partie sonne à la quinte de la corde entière, et le rapport entre les deux est de \(3\) pour \(2\).</p>
+    <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/quinte.wav" type="audio/wav">
+  </audio>
+  <figcaption>Fig. 4 : Deux sons formant un intervalle de quinte</figcaption>
+  </figure>
+  <p>Il est possible de créer de cette manière d'autres intervalles avec le monocorde, faisant intervenir d'autres rapports de longueurs (quarte, tierce majeure, tierce mineure,…). Cependant, nous nous contenterons de l'octave et de la quinte dans la construction de la gamme.</p>
+  <p>En réalité, l'expérience du monocorde traduit des rapports de fréquence que les unités de mesure (Hertz) rendent plus abstraites. Si un son quelconque possède une fréquence \(f\) :</p>
+  <ul>
+    <li><p>Le son qui est à l'octave aura une fréquence \(f_\mathrm{octave} = 2f\) ;</p></li>
+    <li><p>Le son qui est à la quinte aura une fréquence \(f_\mathrm{quinte} = \dfrac{3}{2}f\).</p></li>
+  </ul>
+<p>Pour diminuer une fréquence d'une quinte, il faut la multiplier par le rapport inverse de \(\dfrac{3}{2}\) qui est \(\dfrac{2}{3}\). De la même manière, pour diminuer une fréquence d'une octave, il faut la multiplier par \(\dfrac{1}{2}\).</p>
+<p>Remarquez que nous n'avons pas encore parlé de <span class="it">note</span>, car la construction des notes de musique est justement l'objectif de notre démarche.</p>
+  <h3>Pourquoi il est impossible de créer une gamme parfaite</h3>
+  <p>Ce que l'on voudrait faire désormais est créer une gamme (ensemble de notes aux fréquences fixes) qui respecte ces trois conditions :</p>
+  <ul>
+    <li><p>Les octaves ont toutes un rapport de fréquences égal à \(2\) ;</p></li>
+    <li><p>Les quintes ont toutes un rapport de fréquences égal à \(\dfrac{3}{2}\) ;</p></li>
+    <li><p>La gamme contient un nombre fini et raisonnable de notes.</p></li>
+  </ul>
+<p>Pour réaliser cela, nous partons d'une note de fréquence \(f_0\) choisie arbitrairement. Il est possible de construire sa quinte, qui aura une fréquence \(f_1 = \dfrac{3}{2}f_0\). Puis nous construisons la quinte de la quinte, qui aura une fréquence \(f_2 = \dfrac{3}{2}f_1 = \left(\dfrac{3}{2}\right)^2f_0\), et ainsi de suite. Ce cycle est nommé : cycle des quintes <span class="it">ascendantes</span> car les hauteurs des sons augmentent à mesure que l'on parcourt le cycle. On construit en parallèle le cycle des octaves ascendantes en partant de \(f_0\) : la première octave aura une fréquence \(h_1 = 2f_0\), la seconde octave, qui est à l'octave de la précédente, aura une fréquence \(h_2 = 2h_1 = 2^2f_0\), etc. (contrairement au cycle des quintes, ces fréquences correspondront toujours à la note de départ, bien que leur hauteur varie). Pour que le cycle des quintes finisse par se refermer (sans quoi l'on aurait une infinité de notes), il faut que l'on puisse tomber après un nombre d'étapes fini sur une quinte qui est aussi une octave de la note de départ. Mathématiquement, il s'agit de trouver deux entiers naturels non-nuls \(n\) et \(p\) tels que :</p>
+\[\left(\frac{3}{2}\right)^n = 2^p\]
+<p>Soit :</p>
+  \[\frac{3^n}{2^n} = 2^p\]
+  \[3^n = 2^p \times 2^n\]
+  \[3^n = 2^{p+n}\]
+<p>Ce qui est impossible puisqu'aucune puissance de \(3\) n'est une puissance de \(2\)… Nous ne pouvons donc pas concevoir une gamme dans laquelle les deux intervalles les plus consonnants sont justes à la fois. Toute gamme est donc nécessairement <span class="it">imparfaite</span>. Il faut donc que l'on trouve un compromis.</p>
+
+<h2>L'accord pythagoricien</h2>
+<h3>Contruction</h3>
+  <p>Partons d'une note que l'on appelle arbitrairement <span class="it">do</span> et qui possède une fréquence \(f_0\). Nous reprenons le cycle des quintes ascendantes à partir de cette note en multipliant sa fréquence par \(\dfrac{3}{2}\) à chaque fois, et en divisant les valeurs des rapports par une puissance de \(2\) adéquate lorsqu'elles « sortent » de l'octave (c'est-à-dire dépassent \(2\)). Mathématiquement, il s'agit d'établir une suite \((u_n)_{n\in\mathbb{N}}\) telle que \(u_0 = f_0\) et, pour tout entier naturel \(n\) non-nul :</p>
+  \[u_{n} = \frac{\left(\frac{3}{2}\right)^n}{2^{\lfloor \log_2 \frac{\left(\frac{3}{2}\right)^n}{f_0} \rfloor}}\]
+
+  <table>
+  <thead>
+    <tr>
+      <th scope="col">Numéro de la quinte</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Rapport de fréquences \(\frac{f}{f_0}\)</th>
+      <th scope="col">Rapport de fréquences ramené à l'octave</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">0</th>
+      <td><span class="it">Do</span></td>
+      <td>\(1\)</td>
+      <td>\(1\)</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td><span class="it">Sol</span></td>
+      <td>\(\dfrac{3}{2} = 1.5\)</td>
+      <td>\(\dfrac{3}{2} = 1.5\)</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><span class="it">Ré</span></td>
+      <td>\(\left(\dfrac{3}{2}\right)^2 = 2.25\)</td>
+       <td>\(\dfrac{\left(\dfrac{3}{2}\right)^2}{2} = \dfrac{3^2}{2^3} = 1.125\)</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td><span class="it">La</span></td>
+      <td>\(\left(\dfrac{3}{2}\right)^3 = 3.375\)</td>
+      <td>\(\dfrac{\left(\dfrac{3}{2}\right)^3}{2} = \dfrac{3^3}{2^4} \approx 1.688\)</td>
+    </tr>
+        <tr>
+      <th scope="row">4</th>
+      <td><span class="it">Mi</span></td>
+      <td>\(\left(\dfrac{3}{2}\right)^4 \approx 5.063\)</td>
+      <td>\(\dfrac{\left(\dfrac{3}{2}\right)^4}{2^2} = \dfrac{3^4}{2^6} \approx 1.266\)</td>
+    </tr>
+      <tr>
+      <th scope="row">5</th>
+      <td><span class="it">Si</span></td>
+      <td>\(\left(\dfrac{3}{2}\right)^5 \approx 7.594\)</td>
+      <td>\(\dfrac{\left(\dfrac{3}{2}\right)^5}{2^2} = \dfrac{3^5}{2^7} \approx 1.898\)</td>
+    </tr>
+        <tr>
+      <th scope="row">6</th>
+      <td><span class="it">Fa♯</span></td>
+      <td>\(\left(\dfrac{3}{2}\right)^6 \approx 11.39\)</td>
+      <td>\(\dfrac{\left(\dfrac{3}{2}\right)^6}{2^3} = \dfrac{3^6}{2^9} \approx 1.424\)</td>
+    </tr>
+      <tr>
+      <th scope="row">7</th>
+      <td><span class="it">Do♯</span></td>
+      <td>\(\left(\dfrac{3}{2}\right)^7 \approx 17.09\)</td>
+      <td>\(\dfrac{\left(\dfrac{3}{2}\right)^7}{2^4} = \dfrac{3^7}{2^{11}} \approx 1.068\)</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td><span class="it">Sol♯</span></td>
+      <td>\(\left(\dfrac{3}{2}\right)^8 \approx 25.63\)</td>
+      <td>\(\dfrac{\left(\dfrac{3}{2}\right)^8}{2^4} = \dfrac{3^8}{2^{12}} \approx 1.602\)</td>
+    </tr>
+    <tr>
+      <th scope="row">9</th>
+      <td><span class="it">Ré♯</span></td>
+      <td>\(\left(\dfrac{3}{2}\right)^9 \approx 38.44\)</td>
+      <td>\(\dfrac{\left(\dfrac{3}{2}\right)^9}{2^5} = \dfrac{3^9}{2^{14}} \approx 1.201\)</td>
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td><span class="it">La♯</span></td>
+      <td>\(\left(\dfrac{3}{2}\right)^{10} \approx 57.67\)</td>
+      <td>\(\dfrac{\left(\dfrac{3}{2}\right)^{10}}{2^5} = \dfrac{3^{10}}{2^{15}} \approx 1.802\)</td>
+    </tr>
+    <tr>
+      <th scope="row">11</th>
+      <td><span class="it">Mi♯</span></td>
+      <td>\(\left(\dfrac{3}{2}\right)^{11} \approx 86.50\)</td>
+      <td>\(\dfrac{\left(\dfrac{3}{2}\right)^{11}}{2^6} = \dfrac{3^{11}}{2^{17}} \approx 1.352\)</td>
+    </tr>
+      <tr>
+      <th scope="row">12</th>
+      <td><span class="it">Si♯</span></td>
+      <td>\(\left(\dfrac{3}{2}\right)^{12} \approx 129.7\)</td>
+      <td>\(\dfrac{\left(\dfrac{3}{2}\right)^{12}}{2^7} = \dfrac{3^{12}}{2^{19}} \approx 1.014\)</td>
+    </tr>
+
+  </tbody>
+      <caption>
+    Fig. 5 : Construction d'une gamme pythagoricienne à 12 sons
+  </caption>
+</table>
+<p>On remarque qu'à la 12<sup>e</sup> quinte, le cycle des quintes semble presque se refermer, car on arrive à une note très proche du <span class="it">do</span> de départ. Sur le plan mathématique, il se trouve que si on répète douze fois le passage à la quinte, on a franchi <span class="it">légèrement plus</span> de sept octaves (\(\ \left(\frac{3}{2}\right)^{12}\approx \left(\frac{2}{1}\right)^{7}\)), et on revient <span class="it">presque exactement</span> sur la note initiale. On décide donc de couper le cycle ici en admettant que <span class='it'>si♯</span> = <span class="it">do</span>.</p>
+  <p>Il est possible, en repartant du <span class="it">do</span> initial, de construire le cycle des quintes <span class="it">descendantes</span>, c'est-à-dire qu'au lieu de multiplier par \(\dfrac{3}{2}\), on multiplie par l'inverse qui est \(\dfrac{2}{3}\), et on finira aussi par retomber sur une note proche du <span class="it">do</span>. En combinant des notes prises parmi les deux cycles afin d'améliorer un peu les rapports et en triant les fréquences ainsi obtenues dans l'ordre croissant, on obtient la <span class="bf">gamme chromatique
+pythagoricienne</span> :</p>
+    <table>
+  <thead>
+    <tr>
+      <th scope="col">Numéro de quinte</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Rapport de fréquences ramené à l'octave</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">0</th>
+      <td><span class="it">Do</span></td>
+      <td>\(1\)</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td><span class="it">Do♯</span></td>
+      <td>\(\dfrac{3^7}{2^{11}} \approx 1.068\)</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><span class="it">Ré</span></td>
+       <td>\(\dfrac{3^2}{2^3} = 1.125\)</td>
+    </tr>
+    <tr>
+      <th scope="row">-3</th>
+      <td><span class="it">Mi♭</span></td>
+      <td>\(\dfrac{2^5}{3^3} \approx 1.185\)</td>
+    </tr>
+        <tr>
+      <th scope="row">4</th>
+      <td><span class="it">Mi</span></td>
+      <td>\(\dfrac{3^4}{2^6} \approx 1.266\)</td>
+    </tr>
+      <tr>
+        <tr>
+      <th scope="row">-1</th>
+      <td><span class="it">Fa</span></td>
+      <td>\(\dfrac{4}{3} \approx 1.333\)</td>
+
+    </tr>
+      <tr>
+      <th scope="row">6</th>
+      <td><span class="it">Fa♯</span></td>
+      <td>\(\dfrac{3^6}{2^9} \approx 1.424\)</td>
+    </tr>
+        <tr>
+      <th scope="row">1</th>
+      <td><span class="it">Sol</span></td>
+      <td>\(\dfrac{3}{2} = 1.5\)</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td><span class="it">Sol♯</span></td>
+      <td>\(\dfrac{3^8}{2^{12}} \approx 1.602\)</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td><span class="it">La</span></td>
+      <td>\(\dfrac{3^3}{2^4} \approx 1.688\)</td>
+    </tr>
+    <tr>
+      <th scope="row">-2</th>
+      <td><span class="it">Si♭</span></td>
+      <td>\(\dfrac{2^4}{3^2} \approx 1.778\)</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td><span class="it">Si</span></td>
+      <td>\(\dfrac{3^5}{2^7} \approx 1.802\)</td>
+    </tr>
+    <tr>
+      <th scope="row">0</th>
+      <td><span class="it">Do</span></td>
+      <td>\(2\)</td>
+    </tr>
+
+  </tbody>
+      <caption>
+    Fig. 6 : La gamme chromatique pythagoricienne
+  </caption>
+</table>
+<p>Si on écoute la gamme ainsi formée, cela donne :</p>
+<figure class="audio-figure">
+  <audio controls>
+    <source src="audio/gamme12_pythagore.wav" type="audio/wav">
+  </audio>
+  <figcaption>Fig. 7 : La gamme chromatique pythagoricienne (+ octave).</figcaption>
+  </figure>
+<p>Si l'on enlève les notes altérées, c'est-à-dire celles qui sont augmentées ou diminuées d'un demi-ton par respectivement un dièse ou un bémol, nous obtenons la gamme diatonique pythagoricienne :</p>
+  <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/gamme7_pythagore.wav" type="audio/wav">
+  </audio>
+  <figcaption>Fig. 8 : La gamme diatonique pythagoricienne (+ octave).</figcaption>
+  </figure>
+<h3>Le défaut de la gamme pythagoricienne</h3>
+<p>Le principal défaut de la gamme pythagoricienne réside dans son élaboration : puisque l'on a ignoré la différence, appelée <span class="it">comma pythagoricien</span>, entre 7 octaves et 12 quintes (qui vaut \(\dfrac{\left(\frac{3}{2}\right)^{12}}{2^7} \approx 1.014\)) lorsque l'on a confondu <span class="it">si♯</span> avec <span class="it">do</span>, une quinte sonne fausse. Ici, il s'agit de la quinte <span class="it">sol♯</span>-<span class="it">mi♭</span>, qui au lieu de valoir \(\dfrac{3}{2} = 1.5\) comme les autres, vaut \( \dfrac{2^{18}}{3^{11}} \approx 1.48\). Cette différence est malheureusement très perceptible à l'oreille, si bien que la tradition lui a donné le nom de « quinte du loup », car elle « hurle » comme un loup :</p>
+  <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/quinte_loup_increased.wav" type="audio/wav">
+  </audio>
+  <figcaption>Fig. 9 : Quinte du loup</figcaption>
+  </figure>
+<p>À comparer avec une quinte pure :</p>
+    <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/quinte_pure_increased.wav" type="audio/wav">
+  </audio>
+  <figcaption>Fig. 10 : Quinte pure</figcaption>
+  </figure>
+  <figure class="image-figure">
+    <img class="center-image" src="images/quinte_loup.png">
+    <figcaption>Fig. 11 : Schéma montrant l'apparition de la quinte du loup dans le cycle des quintes pythagoricien.</figcaption>
+  </figure>
+
+
+  <p>Cette gamme, problablement conçue par <span class="sc">Pythagore</span> au V<sup>e</sup> siècle avant J.-C., a été utilisée durant environ deux millénaires. Au Moyen-Âge, la solution au problème de la « quinte du loup » a tout simplement été de ne pas l'utiliser et de la reporter dans un intervalle dont l'on pouvait, à l'époque, se passer, comme <span class="it">do♯</span>-<span class="it">la♭</span> ou <span class="it">sol♯</span>-<span class="it">mi♭</span>. Il est possible de composer dans des tonalités n'utilisant pas naturellement ces notes, comme <span class="it">do</span> majeur. De surcroît, l'Église interdisait aux compositeurs de musique sacrée de l'utiliser, la nommant <span class="it">diabolus in musica</span> (« le diable dans la musique »). Cependant, à partir de la fin du XVI<sup>e</sup>, la musique ayant commencé à vraiment se complexifier, les théoriciens ont cherché à élaborer de nouveaux systèmes d'accordage pour les instruments de manière à pouvoir utiliser tous les intervalles, quitte à modifier légèrement leur justesse. C'est le rôle des tempéraments.</p>
+
+<h2>Les tempéraments</h2>
+  <p>L'enjeu des tempéraments est donc de répartir le comma pythagoricien non plus sur une seule quinte mais sur plusieurs. Il s'agit de sauvegarder le plus grand nombre possible d'inveralles purs, en répartissant les intervalles les plus dissonants sur les tonalités les moins utilisées.</p>
+  <p>Le XVI<sup>e</sup> siècle voit se généraliser les tempéraments dits <span class="it">mésotoniques</span> : il s'agit de tempérer quatre quintes, c'est-à-dire modifier un peu leur valeur pour que la somme des déviations de ces quintes par rapport au \(\dfrac{3}{2}\) de la quinte pure soit égale au comma pythagoricien. Sans rentrer dans les détails, le reste des notes est trouvé à partir d'intervalles de tierce majeure, de rapport \(\dfrac{5}{4}\).</p>
+ <p>Certains tempéraments conservent la tradition pythagoricienne, dans laquelle l'intervalle de référence est la quinte pure. Le <span class="it">Clavier bien tempéré</span> de Johann Sebastian <span class="sc">Bach</span> (1685-1750), ensemble monumental de 48 préludes et fugues écrits dans toutes les tonalités majeures et mineures,  a été conçu pour un tempérament appartenant à cette famille, qui mélange quintes pures et quintes tempérées. D'autres tempéraments, comme ceux d'Andreas <span class="sc">Werckmeister</span> (1646-1706) se fondent aussi sur ce principe.</p>
+  <iframe style="display:block; margin:auto;"
+align="center" width="500" height="315" src="https://www.youtube.com/embed/0KQW2YnCUrE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<figcaption class="video-caption">Fig. 12 : Le célèbre prélude et fugue en <span class="it">do</span> majeur du <span class="it">Clavier bien tempéré</span> (premier livre).</figcaption>
+  <h3>Le tempérament égal</h3>
+  <p>Le tempérament qui est utilisé pour accorder la grande majorité des instruments actuels est le tempérament égal. Il consiste à diviser une octave en douze intervalles égaux, de sorte à ce que le rapport des fréquences de deux notes adjacentes soit toujours le même. En partant d'une note arbitraire, il s'agit donc de déterminer un nombre tel que, multiplié \(12\) fois par lui-même, il soit égal à \(2\), pour former à la fin l'octave de la note initiale. On a donc :
+  \[x^{12} = 2\]
+Soit :
+  \[x = \sqrt[12]{2} \approx 1.059\]
+Ce qui signifie que pour passer d'une note à la suivante dans notre gamme, on la multiplie par environ \(1.059\). On obtient finalement la gamme suivante :</p>
+      <table>
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Rapport de fréquences</th>
+      <th scope="col">Rapport dans le système pythagoricien par comparaison (approx.)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="it">Do</span></td>
+      <td>\(1\)</td>
+      <td>\(1\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">Do♯</span></td>
+      <td>\(2^{\frac{1}{12}} \approx 1.059\)</td>
+      <td>\(1.068\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">Ré</span></td>
+      <td>\(2^{\frac{2}{12}} \approx 1.122\)</td>
+      <td>\(1.125\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">Mi♭</span></td>
+      <td>\(2^{\frac{3}{12}} \approx 1.129\)</td>
+      <td>\(1.185\)</td>
+    </tr>
+        <tr>
+      <td><span class="it">Mi</span></td>
+          <td>\(2^{\frac{4}{12}} \approx 1.260\)</td>
+          <td>\(1.266\)</td>
+    </tr>
+      <tr>
+        <tr>
+      <td><span class="it">Fa</span></td>
+      <td>\(2^{\frac{5}{12}} \approx 1.335\)</td>
+      <td>\(1.333\)</td>
+
+    </tr>
+      <tr>
+      <td><span class="it">Fa♯</span></td>
+        <td>\(2^{\frac{6}{12}} \approx 1.414\)</td>
+      <td>\(1.424\)</td>
+    </tr>
+        <tr>
+      <td><span class="it">Sol</span></td>
+      <td>\(2^{\frac{7}{12}} \approx 1.498\)</td>
+      <td>\(1.5\)</td>
+    </tr>
+      <tr>
+      <td><span class="it">Sol♯</span></td>
+      <td>\(2^{\frac{8}{12}} \approx 1.587\)</td>
+      <td>\(1.602\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">La</span></td>
+      <td>\(2^{\frac{9}{12}} \approx 1.681\)</td>
+      <td>\(1.688\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">Si♭</span></td>
+      <td>\(2^{\frac{10}{12}} \approx 1.782\)</td>
+      <td>\(1.778\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">Si</span></td>
+      <td>\(2^{\frac{11}{12}} \approx 1.889\)</td>
+      <td>\(1.802\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">Do</span></td>
+      <td>\(2\)</td>
+      <td>\(2\)</td>
+    </tr>
+
+  </tbody>
+      <caption>
+    Fig. 13 : La gamme du tempérament égal.
+  </caption>
+</table>
+<p>L'avantage du tempérament égal, c'est que grâce à son absence d'intervalle désagréable pour l'oreille, il est possible de l'utiliser dans toutes les tonalités sans aucune restriction pratique. Il comporte cependant plusieurs défauts : premièrement, <span class="it">aucun</span> de ses intervalles excepté l'octave n'est juste, pas même la quinte (rapport de \(1.498\) au lieu de \(1.5\), pour une liste de quelques rapports justes, voir l'<a href="annexe.html">annexe</a>). Deuxièmement, tous les intervalles de même type sonnent de la même façon, ce qui fait que le tempérament égal est relativement monotone. En fait, il était déjà connu depuis le XVI<sup>e</sup> siècle, mais pour ces raisons les théoriciens de l'époque ont cherché à l'éviter. Le tempérament égal s'est finalement imposé à partir de 1850 pour sa maniabilité, mais il ne faut pas oublier qu'une grande part de la musique savante n'a pas été écrite sous celui-ci.</p>
+<h2>Outil de simulation</h2>
+  <p>Voici un petit outil Javascript qui vous permet d'entendre les différences entre les tempéraments. Vous pouvez sélectionner plusieurs tempéraments (ou créer une gamme en renseignant des rapports de fréquences), puis écouter des tests de gammes, d'intervalles ou d'accords parfaits. Pour des renseignements sur les deux autres systèmes d'accord (intonation juste et Werckmeister III), voir l'<a href="annexe.html">annexe</a>.</p>
+  <div align="center">
+  <iframe style="display:block;" src="simulation.html" width="80%" height="400px" frameborder="1px"></iframe>
+    </div>
+<h2>Deux musiques dans des tempéraments différents</h2>
+  <p><span class="it">O bone Jesu</span> de <span class="sc">Palestrina</span> en <span class="it">la</span> mineur dans quatre tempéraments différents. Note de référence : <span class="it">la4</span> 432 Hz.</p>
+        <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/obj_pythagore.mp3" type="audio/mp3">
+  </audio>
+  <figcaption>Accord pythagoricien</figcaption>
+  </figure>
+      <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/obj_juste.mp3" type="audio/mp3">
+  </audio>
+  <figcaption>Intonation juste</figcaption>
+  </figure>
+        <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/obj_werckmeister.mp3" type="audio/mp3">
+  </audio>
+  <figcaption>Werckmeister III</figcaption>
+  </figure>
+        <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/obj_egal.mp3" type="audio/mp3">
+  </audio>
+  <figcaption>Tempérament égal</figcaption>
+  </figure>
+  <span Une class="it">Chorale</span> de <span class="sc">Bach</span>, en <span class="it">si♭</span> majeur. Nous gardons toujours le <span class="it">la</span> de référence ; entendez les disonnances dans les deux premiers tempéraments.
+        <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/chorale_pythagore.mp3" type="audio/mp3">
+  </audio>
+  <figcaption>Accord pythagoricien</figcaption>
+  </figure>
+      <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/chorale_juste.mp3" type="audio/mp3">
+  </audio>
+  <figcaption>Intonation juste</figcaption>
+  </figure>
+        <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/chorale_werckmeister.mp3" type="audio/mp3">
+  </audio>
+  <figcaption>Werckmeister III</figcaption>
+  </figure>
+        <figure class="audio-figure">
+  <audio controls>
+    <source src="audio/chorale_egal.mp3" type="audio/mp3">
+  </audio>
+  <figcaption>Tempérament égal</figcaption>
+  </figure>
+  <footer>
+    <p>Créé par Alex Taccard, 2024</p>
+  </footer>
+</body>

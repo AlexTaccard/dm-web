@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/obsidian.min.css">
+  <title>Annexe</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  
+</head>
+
+<body>
+  <header>
+  <h1 id="title">La construction des gammes musicales</h1>
+  <h1 id="subtitle">De l'accord pythagoricien au tempérament égal : l'art de faire entendre les nombres</h1>
+  <nav>
+      <a href="index.html">Accueil</a>
+      <a href="theme.html">Thème</a>
+      <a href="avis.html">Avis personnel</a>
+      <a href="references.html">Références</a>
+    </nav>
+  </header>
+  <h1 id="page-title">Annexe</h1>
+  <hr>
+  <h2>Autres systèmes d'accordage</h2>
+  <h3>L'intonation juste</h3>
+  <p>Lorsque l'on joue une note de fréquence \(f\), le son produit est  composite, c'est-à-dire qu'il n'est pas constitué d'une seule note mais d'un ensemble de notes dont les fréquences sont des multiples de la fréquence initiale. Ces notes sont appelés <span class="it">harmoniques</span> et le quotient de leur fréquence avec \(f\) est un nombre rationnel. Les harmoniques ont l'avantage de former avec la note initiale des intervalles purs, et on peut par l'expérimentation trouver les rapports de ces intervalles. La gamme dans laquelle toutes les notes ont des rapports purs avec la note initiale se nomme <span class="it">intonation juste</span>, parfois surnommée « gamme des physiciens ». Voici une telle gamme à 7 notes en partant de <span class="it">do</span> :</p>
+        <table>
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Rapport de fréquences avec note initiale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="it">Do</span></td>
+      <td>\(1\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">Ré</span></td>
+      <td>\(\dfrac{9}{8} = 1.125\)</td> 
+    </tr>
+        <tr>
+      <td><span class="it">Mi</span></td>
+          <td>\(\dfrac{5}{4} = 1.25\)</td>
+    </tr>
+        <tr>
+      <td><span class="it">Fa</span></td>
+      <td>\(\dfrac{4}{3} \approx 1.333\)</td>
+
+    </tr>
+        <tr>
+      <td><span class="it">Sol</span></td>
+      <td>\(\dfrac{3}{2} = 1.5\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">La</span></td>
+      <td>\(\dfrac{5}{3} \approx 1.667\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">Si</span></td>
+      <td>\(\dfrac{15}{8} \approx 1.875\)</td> 
+    </tr>
+    <tr>
+      <td><span class="it">Do</span></td>
+      <td>\(2\)</td>
+    </tr>
+  </tbody>
+      </table>
+<p>Dans ce système, tous les intervalles avec <span class="it">do</span> sont justes, mais les notes ne sont pas forcément justes entre elles. Par exemple, la quinte <span class="it">ré</span>-<span class="it">la</span> vaut \(\dfrac{\frac{5}{3}}{\frac{9}{8}} = \dfrac{40}{27} \approx 1.481\) au lieu de \(\dfrac{3}{2}\). Et cela empire lorsque l'on rajoute des notes, si bien que l'intonation juste est inutilisable en pratique.</p>
+
+
+  <h3>Le tempérament Werckmeister III</h3>
+  <p>Ce tempérament, l'un des trois conçus par le théoricien allemand Andreas <span class="sc"> Werckmeister</span> (1645-1706), a été populaire durant la période baroque. Quatre quintes (<span class="it">do</span>-<span class="it">sol</span>, <span class="it">sol</span>-<span class="it">ré</span>, <span class="it">ré</span>-<span class="it">la</span> et  <span class="it">si</span>-<span class="it">fa♯</span>) sont abaissées d'un quart de comma pythagoricien et toutes les autres sont pures. Ainsi, il n'y a pas de quinte du loup et toutes les notes peuvent être utilisées comme toniques, c'est-à-dire qu'il est possible de jouer avec dans toutes les tonalités.</p>
+          <table>
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Rapport de fréquences avec note initiale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="it">Do</span></td>
+      <td>\(1\)</td>
+    </tr>
+      <tr>
+      <td><span class="it">Do♯</span></td>
+      <td>\(\dfrac{256}{243} \approx 1.053\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">Ré</span></td>
+      <td>\(\dfrac{64}{81}\sqrt{2} \approx 1.117\)</td> 
+    </tr>
+        <tr>
+      <td><span class="it">Ré♯</span></td>
+      <td>\(\dfrac{32}{27} \approx 1.185\)</td> 
+    </tr>
+        <tr>
+      <td><span class="it">Mi</span></td>
+          <td>\(\dfrac{256}{243}\sqrt[4]{2} \approx 1.253\)</td>
+    </tr>
+    
+        <tr>
+      <td><span class="it">Fa</span></td>
+      <td>\(\dfrac{4}{3} \approx 1.333\)</td>
+
+    </tr>
+        <tr>
+      <td><span class="it">Fa♯</span></td>
+      <td>\(\dfrac{1024}{729} \approx 1.405\)</td>
+
+    </tr>
+            <tr>
+      <td><span class="it">Sol</span></td>
+      <td>\(\dfrac{8}{9}\sqrt[4]{2^3} \approx 1.495\)</td>
+      <tr>
+      <td><span class="it">Sol♯</span></td>
+      <td>\(\dfrac{128}{81} \approx 1.580\)</td>
+    <tr>
+      <td><span class="it">La</span></td>
+      <td>\(\dfrac{1024}{729}\sqrt[4]{2} \approx 1.670\)</td>
+    </tr>
+    <tr>
+      <td><span class="it">Si♭</span></td>
+      <td>\(\dfrac{16}{9} \approx 1.778\)</td> 
+    </tr>
+        <tr>
+      <td><span class="it">Si</span></td>
+      <td>\(\dfrac{128}{81}\sqrt[4]{2} \approx 1.879\)</td> 
+    </tr>
+    <tr>
+      <td><span class="it">Do</span></td>
+      <td>\(2\)</td>
+    </tr>
+  </tbody>
+      </table>
+<h2>Synthétiseur en Python</h2>
+  <p>Voici une classe utilisée pour générer les échantillons d'audio de la <a href="theme.html">page de thème</a>.</p>
+  <pre><code class="python">import numpy as np
+from scipy.io import wavfile
+import time, os, wave, struct
+from time import time
+
+RATIOS = {
+            'pythagore':np.array([1, 2187/2048, 9/8, 32/27, 81/64, 4/3, 729/512, 3/2, 6561/4096, 27/16, 16/9, 243/128, 2]),
+            'just':np.array([1, 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 9/5, 15/8, 2]),
+            'werckmeister':np.array([1, 256/243, 64/81*np.sqrt(2), 32/27, 256/243*2**(1/4), 4/3, 1024/729, 8/9*(2**3)**(1/4), 128/81, 1024/729*2**(1/4), 16/9, 128/81*2**(1/4), 2])
+         }
+NAMES_TO_POS = {'C':0, 'C#':1, 'D-':1, 'D':2, 'D#':3, 'E-':3, 'E':4, 'F':5, 'F#':6, 'G-':6, 'G':7, 'G#':8, 'A-':8, 'A':9, 'A#':10, 'B-':10, 'B':11}
+
+class Synth:
+    def __init__(self):
+        self.sample_rate = 44100
+        self.tempo = 160
+        self.amplitude = 0.1
+        self.ref_note_frequency = 440
+        self.ref_note_offset_from_A4 = 0
+        self.temperament = "equal"
+        self.fade_out = True
+
+    def __increase_volume(self, file, factor):
+        with wave.open(file, 'rb') as wave_file:
+            params = wave_file.getparams()
+            num_channels, samp_width, frame_rate, num_frames = params[:4]
+            frames = wave_file.readframes(num_frames)
+            samples = struct.unpack_from("<" + ("h" * num_frames * num_channels), frames)
+            scaled_samples = [min(int(sample * factor), 32767) for sample in samples]
+            frames = struct.pack("<" + ("h" * len(scaled_samples)), *scaled_samples)
+
+        with wave.open(file, 'wb') as output_wave:
+            output_wave.setparams(params)
+            output_wave.writeframes(frames)
+
+        return file
+    
+    def __parse_note_name(self, notes):
+        default_val = -1
+        max_length = max(map(len, notes))
+        notes = [sublist + [default_val] * (max_length - len(sublist)) for sublist in notes]
+        return [[60+NAMES_TO_POS[notes[i][j][:-1]]+12*(int(notes[i][j][-1])-4) if notes[i][j]!=default_val else default_val for j in range(len(notes[i]))] for i in range(len(notes))]
+
+    def __notes_to_frequencies(self, notes):
+        notes = np.array(notes, dtype=float)
+        if self.temperament != "equal":
+            octave, pos = ((notes - 21 - self.ref_note_offset_from_A4) // 12), ((notes - 21 - self.ref_note_offset_from_A4) % 12).astype(int)
+            frequencies = self.ref_note_frequency * RATIOS[self.temperament][pos] * 2**(octave - 4)
+        else:
+            frequencies = 2 ** ((notes - 69) / 12) * self.ref_note_frequency
+
+        return frequencies
+
+    def __frequencies_to_samples(self, frequencies):
+        note_duration = 60 / self.tempo
+        frequencies = np.round(note_duration * frequencies) / note_duration
+        n_samples = int(note_duration * self.sample_rate)
+        time = np.linspace(0, note_duration, n_samples)
+        sine_waves = np.sin(2 * np.pi * frequencies.reshape(-1, 1) * time)
+        sine_waves *= (frequencies > 9.).reshape(-1, 1)
+        return sine_waves.reshape(-1)
+
+    def __chords_to_samples(self, chords):
+        chords = self.__parse_note_name(chords)
+        freqs = self.__notes_to_frequencies(chords)
+
+        if self.fade_out:
+            freqs = np.r_[freqs, freqs[-1:]]
+            silence_indices = [i for i, chord in enumerate(chords) if sum(chord) == 0 and i > 0]
+            for silence_index in silence_indices:
+                if sum(chords[silence_index-1])!=0:
+                    freqs[silence_index] = freqs[silence_index-1]
+
+        merged = np.mean([self.__frequencies_to_samples(melody)
+                        for melody in freqs.T], axis=0)
+
+        if self.fade_out:
+            n_fade_out_samples = self.sample_rate * 60 // self.tempo
+            fade_out = np.linspace(1., 0., n_fade_out_samples)**2
+            merged[-n_fade_out_samples:] *= fade_out
+
+            for silence_index in silence_indices:
+                silence_index = silence_indices[i]
+                if sum(chords[silence_index-1])!=0:
+                    merged[silence_index*n_fade_out_samples:(silence_index+1)*n_fade_out_samples] *= fade_out
+            
+        return merged
+
+    def play(self, chords:list[list[str]], tempo:float=160, amplitude:float=0.1, sample_rate:int=44100, temperament:str="equal", filename:str=None, ref_note:tuple[float, int]=None, fade_out:bool=True) -> str:
+        """Save chords sound in a WAV file.
+        chords : 2D array of notes followed by octave, e.g. : [['A4', 'E4'], ['G#3'], ['B-3']]
+        [tempo] : float, tempo in beats per minute, between 0 et 500.
+        [amplitude] : float, amplitude of signals, to be modified with caution.
+        [sample_rate] : int, sample rate of audio, to be modified with caution.
+        [temperament] : str, temperament used for generating frequencies, equal, just, pythagore or werckmeister.
+        [filename] : str, output file, format must be WAV.
+        [ref_note] : tuple of float and int, first value is frequency of reference note for building temperaments, second is offset of note from A4 in chromatic scale (number of semitones which separates reference note from A4)
+        [fade_out] : bool, if True, chords before silence and at the end of song undergo a fade-out effect.
+        """
+        if not ref_note:
+            self.ref_note_frequency = 440
+            self.ref_note_offset_from_A4 = 0
+        else:
+            self.ref_note_frequency, self.ref_note_offset_from_A4 = ref_note
+
+        self.tempo, self.amplitude, self.sample_rate, self.temperament, self.fade_out = tempo, amplitude, sample_rate, temperament, fade_out
+
+        if filename:
+            assert os.path.exists(os.path.dirname(filename)), '[ERROR] Output file directory does not exist. Avoiding.'
+            if filename[-4:]!='.wav':
+                print('[ALERT] WAV extension missing; added to output file.')
+                filename += '.wav'
+            output_file = os.path.join(os.path.dirname(__file__), filename)
+            
+        else:
+            os.path.join(os.path.dirname(__file__), f'{time()}.wav')
+
+        assert temperament in RATIOS or temperament=="equal", 'Invalid temperament.'
+        assert tempo>0 and tempo < 500, 'Invalid tempo, must be between 0 and 500 BPM.' 
+
+        samples = self.amplitude * self.__chords_to_samples(chords)
+        samples = (2**15 * samples).astype(np.int16)
+
+        wavfile.write(output_file, self.sample_rate, samples)
+        self.__increase_volume(output_file, 1.5)
+
+        return output_file
+# Example
+if __name__=='__main__':
+    synth = Synth()
+    chords = [['A3', 'A4'], ['E4', 'A4'], ['C#4']]
+    tempo = 60
+    output = synth.play(chords, tempo=tempo, temperament="just", filename='test.wav')
+    print(output)</code></pre>
+  <script>hljs.highlightAll();</script>
+    <footer>
+    <p>Créé par Alex Taccard, 2024</p>
+  </footer>
+</body>

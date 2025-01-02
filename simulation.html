@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation</title>
+    <style>
+        body {
+          background-color:white;
+        }
+        .hidable-div {
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .question-group {
+            border: 2px solid black;
+            margin-bottom: 5px;
+        }
+        .question {
+            margin-left: 2px;
+            font-weight: bold;
+        }
+        .form-group {
+            padding-left: 16px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="question-group">
+            <p class="question">Choisissez la note (ou fréquence) de référence :</p>
+            <div class="form-group note-group">
+                <label for="sel-freq">Entrer fréquence :</label>
+                <input type="radio" class="radio radio-hidable" id="sel-freq" onclick="show_checkbox_div(this.id, 'note-group')"></input>
+                <div id="sel-freq-div" class="hidable-div">
+                    <input type="number" min="0" max="11025" id="freq" name="freq" placeholder="440">
+                </div>
+            </div>
+
+            <div class="form-group note-group">
+                <label for="sel-notes">Sélectionner note :</label>
+                <input type="radio" class="radio radio-hidable" id="sel-notes" onclick="show_checkbox_div(this.id, 'note-group')"></input>
+                <div id="sel-notes-div" class="hidable-div">
+                    <select id="note">
+                        <option value="440" selected>La : 440 Hz</option>
+                        <option value="466.164">La♯ ou Si♭ : 466 Hz</option>
+                        <option value="493.883">Si : 494 Hz</option>
+                        <option value="523.251">Do : 523 Hz</option>
+                        <option value="554.365">Do♯ ou ré♭ : 554 Hz</option>
+                        <option value="587.33">Ré : 587 Hz</option>
+                        <option value="622.254">Ré♯ ou mi♭ : 622 Hz</option>
+                        <option value="659.255">Mi : 659 Hz</option>
+                        <option value="698.456">Fa : 698 Hz</option>
+                        <option value="739.989">Fa♯ ou sol♭ : 740 Hz</option>
+                        <option value="783.991">Sol : 784 Hz</option>
+                        <option value="830.609">Sol♯ ou la♭ : 831 Hz</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-group">
+            <p class="question">Choisissez un ou plusieurs systèmes d'accord ou créez votre gamme :</p>
+            <div class="form-group gamme-group">
+                <label for="temperament">Tempérament :</label>
+                <input type="radio" class="radio radio-hidable" id="temperament" name="temperament" onclick="show_checkbox_div(this.id, 'gamme-group')">
+                <div id="temperament-div" class="hidable-div">
+                    <label><input class="temperament-name" value="pythagore" type="checkbox">Pythagore</label><br>
+                    <label><input class="temperament-name" value="juste" type="checkbox">Intonation juste</label><br>
+                    <label><input class="temperament-name" value="égal" type="checkbox">Égal</label><br>
+                    <label><input class="temperament-name" value="werckmeister" type="checkbox">Werckmeister III</label><br>
+                </div>
+            </div>
+
+            <div class="form-group gamme-group">
+                <label for="gamme">Créer gamme :</label>
+                <input type="radio" class="radio radio-hidable" id="gamme" name="gamme" onclick="show_checkbox_div(this.id, 'gamme-group')">
+                <div id="gamme-div" class="hidable-div">
+                    <label for="gamme-input">Rapports (séparés par espace)</label>
+                    <input id="gamme-input" name="gamme-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="question-group">
+        <p class="question">Choisissez un ou plusieurs tests à écouter :</p>
+        <div class="form-group">
+            <div id="test-div">
+                <label><input class="test-type" id="checkbox-gamme" value="gamme" type="checkbox">Gamme à 12 sons (+ octave)</label><br>
+                <label><input class="test-type" id="checkbox-gamme-7" value="gamme-7" type="checkbox">Gamme à 7 sons (+ octave)</label><br>
+                <label><input class="test-type" id="checkbox-accord" value="accord" onclick="document.getElementById('degre').disabled = this.checked ? false : true;" type="checkbox">Accord parfait</label><select id="degre" disabled>
+                    <option selected value="0">Degré I</option>
+                    <option value="1">Degré I.5</option>
+                    <option value="2">Degré II</option>
+                    <option value="3">Degré II.5</option>
+                    <option value="4">Degré III</option>
+                    <option value="5">Degré IV</option>
+                    <option value="6">Degré IV.5</option>
+                    <option value="7">Degré V</option>
+                    <option value="8">Degré V.5</option>
+                    <option value="9">Degré VI</option>
+                    <option value="10">Degré VI.5</option>
+                    <option value="11">Degré VII</option>
+                    </select><br>
+                <label><input class="test-type" id="checkbox-intervalle" value="intervalle" onclick="document.getElementById('degre-intervalle').disabled = this.checked ? false : true; document.getElementById('type-intervalle').disabled = this.checked ? false : true;" type="checkbox">Intervalle</label><select id="type-intervalle" disabled>
+                    <option selected value="1">Seconde mineure</option>
+                    <option value="2">Seconde majeure</option>
+                    <option value="3">Tierce mineure</option>
+                    <option value="4">Tierce majeure</option>
+                    <option value="5">Quarte juste</option>
+                    <option value="6">Triton</option>
+                    <option value="7">Quinte juste</option>
+                    <option value="8">Sixte mineure</option>
+                    <option value="9">Sixte majeure</option>
+                    <option value="10">Septième mineure</option>
+                    <option value="11">Septième majeure</option>
+                    <option value="12">Octave juste</option>
+                    </select><select id="degre-intervalle" disabled>
+                    <option selected value="0">Degré I</option>
+                    <option value="1">Degré I.5</option>
+                    <option value="2">Degré II</option>
+                    <option value="3">Degré II.5</option>
+                    <option value="4">Degré III</option>
+                    <option value="5">Degré IV</option>
+                    <option value="6">Degré IV.5</option>
+                    <option value="7">Degré V</option>
+                    <option value="8">Degré V.5</option>
+                    <option value="9">Degré VI</option>
+                    <option value="10">Degré VI.5</option>
+                    <option value="11">Degré VII</option>
+                </select><br><br>
+            </div>
+        </div>
+    </div>
+        <button id="submit" type="submit">Lancer test</button>
+        <button type="button" onclick="stopAudio=true;" id="stopButton" disabled>Arrêter la lecture</button>
+
+        <div style="display: none;" id="current-infos">
+            <p id="current-gamme">Gamme : </p>
+            <p id="current-test">Test : </p>
+        </div>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.js"></script>
+    <script>
+        var playButton = document.getElementById("submit");
+        var stopButton = document.getElementById("stopButton");
+        var curr_infos = document.getElementById('current-infos');
+        var curr_gamme = document.getElementById('current-gamme');
+        var curr_test = document.getElementById('current-test');
+        var note_numbers = [...Array(13).keys()];
+        var ratios = {'pythagore':[1, 2187/2048, 9/8, 32/27, 81/64, 4/3, 729/512, 3/2, 6561/4096, 27/16, 16/9, 243/128, 2],
+                    'juste':[1, 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 9/5, 15/8, 2],
+                    'égal': note_numbers.map(nb => 2**(nb/12)),
+                    'werckmeister':[1, 256/243, 64/81*Math.sqrt(2), 32/27, 256/243*2**(1/4), 4/3, 1024/729, 8/9*(2**3)**(1/4), 128/81, 1024/729*2**(1/4), 16/9, 128/81*2**(1/4), 2]
+                    };
+
+        var synth;
+        var stopAudio = false;
+
+        async function playNotes(frequenciesArray, playSequentially = true) {
+            playButton.disabled = true;
+            stopButton.disabled = false;
+
+            if (playSequentially) {
+                for (const frequency of frequenciesArray) {
+                    await playNote(frequency);
+                    if (stopAudio) {
+                        stopPlaying();
+                        return 1;
+                    }
+                }
+            } else {
+                for (const frequency of frequenciesArray) {
+                    playNoteSimultaneously(frequency);
+                    if (stopAudio) {
+                        stopPlaying();
+                        return 1;
+                    }
+                }
+            }
+
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            playButton.disabled = false;
+            stopButton.disabled = true;
+        }
+
+        function playNote(frequency) {
+            return new Promise(resolve => {
+                synth = new Tone.Synth().toDestination();
+                synth.triggerAttackRelease(frequency, 0.5);
+                setTimeout(resolve, 500);
+            });
+        }
+
+        function playNoteSimultaneously(frequency) {
+            synth = new Tone.Synth().toDestination();
+            synth.triggerAttackRelease(frequency, 0.5);
+        }
+
+        function stopPlaying() {
+            stopAudio = false;
+            curr_infos.style.display = "none";
+            playButton.disabled = false;
+            stopButton.disabled = true;
+        }
+
+        function show_checkbox_div(radio_id, group) {
+            var curr_radio_hidable_div = document.getElementById(radio_id + '-div');
+            var curr_radio = document.getElementById(radio_id);
+            var radios = document.querySelectorAll('.' + group + ' .radio-hidable');
+            var checkboxes = [document.getElementById('checkbox-accord'), document.getElementById('checkbox-gamme-7'), document.getElementById('checkbox-intervalle')];
+
+            if (curr_radio.checked && curr_radio_hidable_div.style.display === 'block') {
+                return 0;
+            }
+
+            if (curr_radio_hidable_div.style.display === 'block') {
+                curr_radio_hidable_div.style.display = 'none';
+            }
+            else {
+                if (radio_id==='gamme') {
+                    checkboxes.forEach(checkbox => {
+                        checkbox.disabled = true;
+                        checkbox.checked = false;
+                    });
+                }
+                else if (radio_id=='temperament'){
+                    checkboxes.forEach(checkbox => {
+                        checkbox.disabled = false;
+                    });
+                }
+
+                curr_radio_hidable_div.style.display = 'block';
+                for (const radio of radios) {
+                    if (radio.id!=radio_id) {
+                        radio.checked = false;
+                        document.getElementById(radio.id + '-div').style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        playButton.addEventListener('click', async (e) => {
+            e.preventDefault();
+            var freq = document.getElementById('sel-freq').checked ? parseFloat(document.getElementById('freq').value) : parseFloat(document.getElementById('note').value);
+            var sim_obj = {'freq':freq};
+            if (document.getElementById('temperament').checked==true) {
+                const temperament_checkboxes = document.querySelectorAll("#temperament-div .temperament-name");
+                var temperament_nb = 0
+                sim_obj['temperament'] = [];
+                sim_obj['gamme'] = [];
+                for (const checkbox of temperament_checkboxes) {
+                    if (checkbox.checked) {
+                        var value = checkbox.value;
+                        sim_obj['temperament'].push(value);
+                        temperament_nb++;
+                        sim_obj['gamme'].push({[value]:ratios[value].map(ratio => freq*ratio)});
+                    }
+                }
+                if (temperament_nb<1) {
+                    console.log('Invalid temperament number. Operation avoided.')
+                    return 1;
+                }
+            }
+            else {
+                var gamme = document.getElementById('gamme-input').value.split(' ');
+                if (gamme.length<1) {
+                    console.log('Invalid gamme. Operation avoided.')
+                    return 1;
+                }
+                gamme = gamme.map(nb => freq*parseFloat(nb));
+                sim_obj['temperament'] = false;
+                sim_obj['gamme'] = gamme;
+            }
+            const test_types = document.getElementsByClassName('test-type');
+            sim_obj['test'] = [];
+            test_nb = 0;
+            for (const checkbox of test_types) {
+                if (checkbox.checked) {
+                    var value = checkbox.value;
+                    sim_obj['test'].push(value);
+                    test_nb++;
+                }
+            }
+
+            if (sim_obj['test'].includes('accord')) {
+                sim_obj['degre'] = parseInt(document.getElementById('degre').value);
+            }
+
+            if (sim_obj['test'].includes('intervalle')) {
+                sim_obj['degre-intervalle'] = parseInt(document.getElementById('degre-intervalle').value);
+                sim_obj['type-intervalle'] = parseInt(document.getElementById('type-intervalle').value)
+            }
+
+            if (test_nb<1) {
+                console.log('Invalid test number. Operation avoided.')
+                return 1;
+            }
+            console.log(sim_obj);
+
+            curr_infos.style.display = "block";
+
+            for (const test of sim_obj['test']) {
+                if (test=='gamme' || test=='gamme-7') {
+                    if (sim_obj['temperament']!=false) {
+                        for (const gamme of sim_obj['gamme']) {
+                                var gamme_name = Object.keys(gamme)[0];
+                                var gamme_to_play = gamme[gamme_name];
+                                if (test=='gamme-7') {
+                                    gamme_to_play = [gamme_to_play[0], gamme_to_play[2], gamme_to_play[4], gamme_to_play[5], gamme_to_play[7], gamme_to_play[9], gamme_to_play[11], gamme_to_play[12]];
+                                }
+                                curr_test.innerHTML = "Test : <span class='bold'>" + test[0].toUpperCase() + test.slice(1) + '</span>';
+                                curr_gamme.innerHTML = "Gamme : <span class='bold'>" + gamme_name[0].toUpperCase() + gamme_name.slice(1) + '</span>';
+                                var res = await playNotes(gamme_to_play, true);
+                                if (res==1) {
+                                    return 1;
+                                }
+                                await new Promise(resolve => setTimeout(resolve, 500));
+                            }
+                    }
+                    else {
+                        var gamme = sim_obj['gamme'];
+                        curr_test.innerHTML = "Test : <span class='bold'>" + test[0].toUpperCase() + test.slice(1) + '</span>';
+                        curr_gamme.innerHTML = "Gamme : <span class='bold'>Gamme de l'utilisateur</span>";
+                        var res = await playNotes(gamme, true);
+                        if (res==1) {
+                            return 1;
+                        }
+                    }
+                }
+                else if (test=='accord') {
+                    var degre = sim_obj['degre'];
+                    var degres = [degre, degre+4, degre+7];
+                    for (const gamme of sim_obj['gamme']) {
+                        var gamme_name = Object.keys(gamme)[0];
+                        var gamme_to_play = gamme[gamme_name];
+                        var notes = []
+                        for (let _degre of degres) {
+                            var note = _degre>11 ? gamme_to_play[_degre-12]*2 : gamme_to_play[_degre];
+                            notes.push(note);
+                        }
+                        curr_test.innerHTML = "Test : <span class='bold'>" + test[0].toUpperCase() + test.slice(1) + '</span>';
+                        curr_gamme.innerHTML = "Gamme : <span class='bold'>" + gamme_name[0].toUpperCase() + gamme_name.slice(1) + '</span>';
+                        var res = await playNotes(notes, true);
+                        if (res==1) {
+                            return 1;
+                        }
+                        res = await playNotes(notes, false);
+                        if (res==1) {
+                            return 1;
+                        }
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                    }
+                }
+                else if (test=='intervalle') {
+                    var degre = sim_obj['degre-intervalle'];
+                    var intervalle = sim_obj['type-intervalle'];
+                    var degres = [degre, degre+intervalle];
+                    for (const gamme of sim_obj['gamme']) {
+                        var gamme_name = Object.keys(gamme)[0];
+                        var gamme_to_play = gamme[gamme_name];
+                        var notes = []
+                        for (let _degre of degres) {
+                            var note = _degre>11 ? gamme_to_play[_degre-12]*2 : gamme_to_play[_degre];
+                            notes.push(note);
+                        }
+                        curr_test.innerHTML = "Test : <span class='bold'>" + test[0].toUpperCase() + test.slice(1) + '</span>';
+                        curr_gamme.innerHTML = "Gamme : <span class='bold'>" + gamme_name[0].toUpperCase() + gamme_name.slice(1) + '</span>';
+                        console.log(notes[1]/notes[0]);
+                        var res = await playNotes(notes, true);
+                        if (res==1) {
+                            return 1;
+                        }
+                        res = await playNotes(notes, false);
+                        if (res==1) {
+                            return 1;
+                        }
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                    }
+                }
+            }
+            curr_infos.style.display = "none";
+            stopAudio = false;
+        });
+    </script>
+</body>
+</html>

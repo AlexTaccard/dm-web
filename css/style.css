@@ -1,0 +1,143 @@
+.bf {
+  font-weight: bold;
+}
+.it {
+  font-style: italic;
+}
+.sc {
+  font-variant: small-caps;
+}
+.center-image {
+  width:20em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.image-figure figcaption {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.audio-figure {
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.audio-figure audio {
+    display: block;
+    margin-bottom: 5px;
+}
+table {
+  margin-left:auto;
+  margin-right:auto;
+  border-collapse: collapse;
+  border: 2px solid rgb(140 140 140);
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  width: 20em; 
+}
+
+thead,
+tfoot {
+  background-color: rgb(228 240 245);
+}
+
+th,
+td {
+  border: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+}
+
+td, th[scope="row"] {
+    background-color: white;
+}
+#title {
+  text-align: center;
+}
+#subtitle {
+  text-align: center;
+  font-size: x-large;  
+}
+#page-title {
+  font-size: 30px;
+  text-align: center; 
+}
+
+header, footer {
+  overflow: auto;
+  position: relative; 
+  margin: 0;
+  width: 100%;
+  background-color:orange;
+}
+
+footer {
+  left: 0; 
+  bottom: 0;
+  width: 100%;
+  background-color: orangered;
+  color: white;
+  text-align: center; 
+  margin-top: 20px; 
+
+  position: sticky;
+  top: 100%;
+}
+body {
+  width: 100%;
+  padding: 0;
+  margin:0;
+  background-color: #FCD638;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+nav a{
+  float: left;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: black;
+  height: 36px;
+  line-height: 33px; 
+  padding: 0 10px;
+  font-family: sans-serif;
+  font-size: 13px;
+  width: 100%;
+  text-align: center;
+}
+nav   a:hover{
+  background-color: gray; /* image de fond */
+}
+
+a {
+  color: red; 
+}
+a:hover {
+  color: white;
+} 
+
+hr {
+  border: 1px solid #181818;
+}
+
+#page-title {
+  display: center;
+}
+
+.video-caption {
+  margin-top:5px; 
+  text-align: center; 
+}
+
+p, h2, h3 {
+  margin-left: 5px; 
+  margin-right: 5px;
+}
